@@ -1,10 +1,10 @@
 import csv
 file_names = []
 for i in xrange(1,339):
-	file_names.append("vote #%d.csv" %(i+1))
+	file_names.append("vote%d.csv" %(i+1))
 
 sen_dict = {}
-with open("vote #1.csv", "rb") as v1:
+with open("vote1.csv", "rb") as v1:
 	reader = csv.DictReader(v1)	
 	for row in reader:
 		print row["vote"]
