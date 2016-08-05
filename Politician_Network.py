@@ -1,5 +1,6 @@
 import csv
-
+import networkx as nx
+import matplotlib as plt
 #			Creating the adjacency matrix
 
 
@@ -8,7 +9,7 @@ data = list(csv.reader(open("Final_Inverted.csv")))
 sen_Names = []
 for row in data:
 	sen_Names.append(row[0])
-
+#print sen_Names
 votes= [[0 for x in range(100)] for y in range(100)]
 
 for row in xrange(1,100):
