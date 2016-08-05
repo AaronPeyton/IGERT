@@ -1,7 +1,7 @@
 import csv
-"""
-			Creating the adjacency matrix
-"""
+
+#			Creating the adjacency matrix
+
 
 data = list(csv.reader(open("Final_Inverted.csv")))
 
@@ -32,10 +32,7 @@ for col in xrange(1,340):
 print temp
 """
 			
-"""
-				Creating the Network graph
-"""
 
-
+#				Creating the Network graph
 
 
