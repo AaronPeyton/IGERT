@@ -1,7 +1,6 @@
 import csv
 import networkx as nx
 import matplotlib.pyplot as plt
-import math
 
 #			Creating the adjacency matrix
 
@@ -61,7 +60,7 @@ for name in sen_Names:
 #print labels
 
 
-positions = nx.spring_layout(gn, k = 0.25)
+positions = nx.spring_layout(gn, k = 0.30)
 nx.draw_networkx_labels(gn, positions, labels, font_size = 7)
 nx.draw(gn, positions, node_color=node_color.values())
 
