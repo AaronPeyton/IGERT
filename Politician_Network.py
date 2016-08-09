@@ -1,6 +1,8 @@
 import csv
 import networkx as nx
 import matplotlib.pyplot as plt
+import math
+
 #			Creating the adjacency matrix
 
 
@@ -20,20 +22,36 @@ for row in xrange(1,100):
 #				Creating the Network graph
 
 sen_Names = []
+node_color = {}
 for row in data:
 	sen_Names.append('%s' %row[0])
+	setcolor = ""
+	if row[0][-3:] == '[D]':
+		node_color[row[0]]='blue'
+		setcolor = 'blue'
+	elif row[0][-3:] == '[R]':
+		node_color[row[0]]='red'
+		setcolor = 'red'
+	elif row[0][-3:] == '[I]':
+		node_color[row[0]]='yellow'
+		setcolor = 'yellow'
+ 
 sen_Names = sen_Names[1:]
 #print sen_Names
 
 g = nx.Graph()
+gn = nx.Graph()
 g.add_nodes_from(sen_Names)
-temp = 0
+gn.add_nodes_from(sen_Names)
+
 for row in xrange(100):
-	for col in xrange(100):
-		if votes[row][col] > 300:
-			g.add_edge(sen_Names[row], sen_Names[col], weight=votes[row][col])
-			temp += 1
-print temp
+	for col in xrange(row, 100):
+		if row != col:
+			g.add_edge(sen_Names[row], sen_Names[col], weight=abs(votes[row][col]-1000))
+mst = nx.minimum_spanning_edges(g, data = True)
+edgelist = list(mst)
+gn.add_edges_from(edgelist)
+#print sorted(edgelist)
 
 
 
@@ -43,14 +61,13 @@ for name in sen_Names:
 #print labels
 
 
-positions = nx.spring_layout(g)
-nx.draw_networkx_labels(g, positions, labels, font_size = 7)
-nx.draw(g, positions)
+positions = nx.spring_layout(gn, k = 0.25)
+nx.draw_networkx_labels(gn, positions, labels, font_size = 7)
+nx.draw(gn, positions, node_color=node_color.values())
 
 
 plt.savefig("Politician_Graph.png")
 plt.show()
-
 
 
 
