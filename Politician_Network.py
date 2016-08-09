@@ -23,7 +23,7 @@ for row in xrange(1,100):
 sen_Names = []
 node_color = {}
 for row in data:
-	sen_Names.append('%s' %row[0])
+	sen_Names.append('%s' %row[0][5:-3])
 	setcolor = ""
 	if row[0][-3:] == '[D]':
 		node_color[row[0]]='blue'
@@ -61,8 +61,8 @@ for name in sen_Names:
 
 
 positions = nx.spring_layout(gn, k = 0.30)
-nx.draw_networkx_labels(gn, positions, labels, font_size = 7)
-nx.draw(gn, positions, node_color=node_color.values())
+nx.draw_networkx_labels(gn, positions, labels, font_size = 11)
+nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 
 plt.savefig("Politician_Graph.png")
