@@ -1,0 +1,20 @@
+If you did not find this out already, Alberto and I will not be here today.
+
+We made the graph into a minimum_spanning_tree (look this up to find out what it is)
+We made the nodes of democrats blue, republicans red, and independants yellow.
+
+
+Aaron do these things today:
+
+Researh and understand what degree_centrality and shortest_path are.
+Then ask Yi what to do with those because he will explain it better than I can.
+
+Also think about what we want to do with this data, and how else we want to manipulate it.
+
+
+
+We also made a powerpoint on google drive in the UCSB Project folder if you want to check that out and put some analyis into it.
+
+Love Jared and Alberto <3
+
+P.S. Try to get a lot done as we have a limited amount of time left to work on our projects.
