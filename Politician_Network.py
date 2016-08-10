@@ -64,9 +64,38 @@ positions = nx.spring_layout(gn, k = 0.30)
 nx.draw_networkx_labels(gn, positions, labels, font_size = 11)
 nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
+#								finding degree_centrality
+centrality_dict = nx.degree_centrality(gn)
+for k, v in centrality_dict.iteritems():
+    print k,v
+
+
+#								finding nx.shortest_path
+s_path_dict = nx.shortest_path(gn) 
+# start = ''
+# end = ''
+# l_path = []
+# for key, mini_dict in s_path_dict.iteritems():
+# 	for k, v in mini_dict.iteritems():
+# 		if len(v) > len(l_path):
+# 			start = key
+# 			end = k
+# 			l_path = v
+# # print "start	: %s" %start
+# # print "end	: %s" %end
+# # print l_path
+
+
+
+
+
+
+
 
 plt.savefig("Politician_Graph.png")
 plt.show()
+
+
 
 
 
