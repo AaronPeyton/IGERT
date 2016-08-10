@@ -66,8 +66,8 @@ nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 #								finding degree_centrality
 centrality_dict = nx.degree_centrality(gn)
-for k, v in centrality_dict.iteritems():
-    print k,v
+# for k, v in centrality_dict.iteritems():
+#     print k,v
 
 
 #								finding nx.shortest_path
