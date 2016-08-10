@@ -27,13 +27,13 @@ for row in data:
 	setcolor = ""
 	if row[0][-3:] == '[D]':
 		node_color[row[0]]='blue'
-		setcolor = 'blue'
+		#setcolor = 'blue'
 	elif row[0][-3:] == '[R]':
 		node_color[row[0]]='red'
-		setcolor = 'red'
+		#setcolor = 'red'
 	elif row[0][-3:] == '[I]':
 		node_color[row[0]]='yellow'
-		setcolor = 'yellow'
+		#setcolor = 'yellow'
  
 sen_Names = sen_Names[1:]
 #print sen_Names
@@ -86,33 +86,5 @@ s_path_dict = nx.shortest_path(gn)
 # # print l_path
 
 
-
-
-
-
-
-
 plt.savefig("Politician_Graph.png")
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
