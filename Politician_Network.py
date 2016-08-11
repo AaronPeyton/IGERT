@@ -35,17 +35,17 @@ sen_Names = sen_Names[1:]
 #print sen_Names
 
 g = nx.Graph()
-gn = nx.Graph()
+#gn = nx.Graph()
 g.add_nodes_from(sen_Names)
-gn.add_nodes_from(sen_Names)
+#gn.add_nodes_from(sen_Names)
 
 for row in xrange(100):
 	for col in xrange(row, 100):
-		if row != col:
-			g.add_edge(sen_Names[row], sen_Names[col], weight=abs(votes[row][col]-1000))
-mst = nx.minimum_spanning_edges(g, data = True)
-edgelist = list(mst)
-gn.add_edges_from(edgelist)
+		if row != col and votes[row][col] > 211:
+			g.add_edge(sen_Names[row], sen_Names[col], weight=votes[row][col])
+#mst = nx.minimum_spanning_edges(g, data = True)
+#edgelist = list(mst)
+#gn.add_edges_from(edgelist)
 #print sorted(edgelist)
 
 
@@ -56,45 +56,40 @@ for name in sen_Names:
 #print labels
 
 
-positions = nx.spring_layout(gn, k = 0.40)
-nx.draw_networkx_labels(gn, positions, labels, font_size = 11)
-nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
-
-#								finding degree_centrality
-#centrality_dict = nx.degree_centrality(gn)
-# for k, v in centrality_dict.iteritems():
-#     print k,v
+positions = nx.spring_layout(g, k = 0.1)
+nx.draw_networkx_labels(g, positions, labels, font_size = 11)
+nx.draw(g, positions,node_size = 55, node_color=node_color.values())
 
 
-#								finding nx.shortest_path
-s_path_dict = nx.shortest_path(gn) 
-start = ''
-end = ''
-l_path = []
-for key, mini_dict in s_path_dict.iteritems():
- 	for k, v in mini_dict.iteritems():
- 		if len(v) > len(l_path):
- 			start = key
- 			end = k
- 			l_path = v
-#print "start	: %s" %start
-#print "end	: %s" %end
-#print l_path
-
-
-# start = ''
-# end = ''
-# l_path = []
-# for key, mini_dict in s_path_dict.iteritems():
-# 	for k, v in mini_dict.iteritems():
-# 		if len(v) > len(l_path):
-# 			start = key
-# 			end = k
-# 			l_path = v
-# print "start	: %s" %start
-# print "end	: %s" %end
-# print l_path
+#					centrality(again)
+cen_dict = nx.degree_centrality(g)
+h_k = ''
+h_v = 0
+sen_outliers = []
+for k,v in cen_dict.iteritems():
+	if v > h_v:
+		h_v, h_k = v, k
+	if v == 0:
+		sen_outliers.append(k)
+#print h_k, h_v
+#print sen_outliers
+#print len(sen_outliers)
 
 
 plt.savefig("Politician_Graph.png")
 plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
