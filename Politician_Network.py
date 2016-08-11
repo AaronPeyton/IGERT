@@ -68,6 +68,7 @@ nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 #								finding nx.shortest_path
 s_path_dict = nx.shortest_path(gn) 
+<<<<<<< HEAD
 start = ''
 end = ''
 l_path = []
@@ -81,6 +82,20 @@ for key, mini_dict in s_path_dict.iteritems():
 #print "end	: %s" %end
 #print l_path
 
+=======
+# start = ''
+# end = ''
+# l_path = []
+# for key, mini_dict in s_path_dict.iteritems():
+# 	for k, v in mini_dict.iteritems():
+# 		if len(v) > len(l_path):
+# 			start = key
+# 			end = k
+# 			l_path = v
+# print "start	: %s" %start
+# print "end	: %s" %end
+# print l_path
+>>>>>>> cf7df4606936d80c7216c63c162d79e8b78e9508
 
 
 plt.savefig("Politician_Graph.png")
