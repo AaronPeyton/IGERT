@@ -23,17 +23,13 @@ for row in xrange(1,100):
 sen_Names = []
 node_color = {}
 for row in data:
-	sen_Names.append('%s' %row[0][5:-3])
-	setcolor = ""
 	if row[0][-3:] == '[D]':
-		node_color[row[0]]='blue'
-		#setcolor = 'blue'
+		node_color[row[0][5:-3]]='blue'
 	elif row[0][-3:] == '[R]':
-		node_color[row[0]]='red'
-		#setcolor = 'red'
+		node_color[row[0][5:-3]]='red'
 	elif row[0][-3:] == '[I]':
-		node_color[row[0]]='yellow'
-		#setcolor = 'yellow'
+		node_color[row[0][5:-3]]='yellow'
+	sen_Names.append('%s' %row[0][5:-3])
  
 sen_Names = sen_Names[1:]
 #print sen_Names
@@ -60,30 +56,31 @@ for name in sen_Names:
 #print labels
 
 
-positions = nx.spring_layout(gn, k = 0.30)
+positions = nx.spring_layout(gn, k = 0.40)
 nx.draw_networkx_labels(gn, positions, labels, font_size = 11)
 nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 #								finding degree_centrality
-centrality_dict = nx.degree_centrality(gn)
+#centrality_dict = nx.degree_centrality(gn)
 # for k, v in centrality_dict.iteritems():
 #     print k,v
 
 
 #								finding nx.shortest_path
 s_path_dict = nx.shortest_path(gn) 
-# start = ''
-# end = ''
-# l_path = []
-# for key, mini_dict in s_path_dict.iteritems():
-# 	for k, v in mini_dict.iteritems():
-# 		if len(v) > len(l_path):
-# 			start = key
-# 			end = k
-# 			l_path = v
-# # print "start	: %s" %start
-# # print "end	: %s" %end
-# # print l_path
+start = ''
+end = ''
+l_path = []
+for key, mini_dict in s_path_dict.iteritems():
+ 	for k, v in mini_dict.iteritems():
+ 		if len(v) > len(l_path):
+ 			start = key
+ 			end = k
+ 			l_path = v
+#print "start	: %s" %start
+#print "end	: %s" %end
+#print l_path
+
 
 
 plt.savefig("Politician_Graph.png")
