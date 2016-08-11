@@ -81,9 +81,9 @@ s_path_dict = nx.shortest_path(gn)
 # 			start = key
 # 			end = k
 # 			l_path = v
-# # print "start	: %s" %start
-# # print "end	: %s" %end
-# # print l_path
+# print "start	: %s" %start
+# print "end	: %s" %end
+# print l_path
 
 
 plt.savefig("Politician_Graph.png")
