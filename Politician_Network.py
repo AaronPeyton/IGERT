@@ -41,7 +41,7 @@ g.add_nodes_from(sen_Names)
 
 for row in xrange(100):
 	for col in xrange(row, 100):
-		if row != col and votes[row][col] > 211:
+		if row != col and votes[row][col] > 325:
 			g.add_edge(sen_Names[row], sen_Names[col], weight=votes[row][col])
 #mst = nx.minimum_spanning_edges(g, data = True)
 #edgelist = list(mst)
@@ -71,9 +71,9 @@ for k,v in cen_dict.iteritems():
 		h_v, h_k = v, k
 	if v == 0:
 		sen_outliers.append(k)
-#print h_k, h_v
-#print sen_outliers
-#print len(sen_outliers)
+print h_k, h_v
+print sen_outliers
+print len(sen_outliers)
 
 
 plt.savefig("Politician_Graph.png")

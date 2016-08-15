@@ -61,7 +61,31 @@ nx.draw_networkx_labels(gn, positions, labels, font_size = 11)
 nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 
+#					centrality(again)
+cen_dict = nx.degree_centrality(gn)
+#h_k = ''
+#h_v = 0
+average = 0
+for k,v in cen_dict.iteritems():
+	average += v
+	if v >= .05:
+		print k, v
+	
+# 	if v > h_v:
+# 		h_v, h_k = v, k
+#print h_k, h_v
+average/=100.
+print average
+
 
 
 plt.savefig("Min_span_tree.png")
 plt.show()
+
+
+
+
+
+
+
+
