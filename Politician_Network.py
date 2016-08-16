@@ -35,19 +35,12 @@ sen_Names = sen_Names[1:]
 #print sen_Names
 
 g = nx.Graph()
-#gn = nx.Graph()
 g.add_nodes_from(sen_Names)
-#gn.add_nodes_from(sen_Names)
 
 for row in xrange(100):
 	for col in xrange(row, 100):
 		if row != col and votes[row][col] > 212:
 			g.add_edge(sen_Names[row], sen_Names[col], weight=votes[row][col])
-#mst = nx.minimum_spanning_edges(g, data = True)
-#edgelist = list(mst)
-#gn.add_edges_from(edgelist)
-#print sorted(edgelist)
-
 
 
 labels={}
