@@ -63,18 +63,10 @@ nx.draw(gn, positions,node_size = 55, node_color=node_color.values())
 
 #					centrality
 cen_dict = nx.degree_centrality(gn)
-#h_k = ''
-#h_v = 0
-average = 0
 for k,v in cen_dict.iteritems():
-	average += v
-	if v >= .05:
+	if v >= .05:		#prints senators with 5+ degrees
 		print k, v
-	
-# 	if v > h_v:
-# 		h_v, h_k = v, k
-#print h_k, h_v
-average/=100.
+
 #print average
 # The average is 2 degrees!
 
